@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="POST">
+        {% csrf_token %}
+    {% if error %}
+    <table style="border:5px solid red">
+        {{ form }}
+    </table>
+    {{ error }}<br>
+    {% else %}
+    <table>
+        {{ form }}
+    </table>
+    {% endif %}
+     <input type="submit" value="Send">
+</form>
+</body>
+</html>

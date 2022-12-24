@@ -1,0 +1,23 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+
+
+ {% block content %}
+
+ <table style="width: 100%;">
+     {% for index in models %}
+        <tr style="border: 2px solid black;">
+            <th style="width: 15%;"></th>
+            <th>{{ index.id }}</th>
+            <th>{{ index.title }}</th>
+            <th><p>{{ model.cost }}</p></th>
+            <th><img width="300px" src="{{index.picture}}"></th>
+            <th style="width: 15%;"></th>
+        </tr>
+     {% endfor %}
+ </table>
+ <h1 style="margin-left: 46%;">{{ summ }}</h1>
+ <input style="background-color: violet; width: 150px; margin-left: 46%;" type="button" value="buy" onclick="location.href='{% url 'buy' %}'" >
+ {% endblock %}
+

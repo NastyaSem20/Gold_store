@@ -1,0 +1,31 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+{% block content %}
+    {% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'index.css'%} ">
+    {% endblock %}
+    <h1>Главная страница</h1>
+    {% for model in models %}
+        <div style="background-color: #a4ff8e; border: 2px solid #88d375; margin: 20px; padding: 20px;">
+            <h2>{{ model.title }}</h2>
+            <p>{{ model.specification }}</p>
+            <img width="300px" src="{{ model.picture }}">
+            <br>
+            <input style="background-color: #d2afd3; margin-left: 77%; width: 100px;" type="button" value="add to card" onclick="location.href='{% url 'add_basket'%}?product_id={{ model.id }}'">
+            <br>
+            <h3 style="margin-left: 78%;">{{ model.cost }}</h3>
+        </div>
+        <br>
+    {% endfor %}
+    <input style="background-color: violet; margin-left: 46%; width: 200px;" type="button" value="go to cart" onclick="location.href='{% url 'cart' %}'">
+{% endblock %}
+
+
+
+
+
